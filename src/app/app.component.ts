@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-tutorial-16';
+  channel = {
+    title : 'Interview Pro',
+    subtitle : 'Learn - Code - Skill UP',
+    logoSrc : '/assets/logo-interview.png',
+  }
+
+  shouldDisable : boolean = true; 
 }
