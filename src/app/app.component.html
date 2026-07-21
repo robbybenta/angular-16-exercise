@@ -2,7 +2,8 @@
   <app-project></app-project>
   <app-profile></app-profile>
 </div> -->
-<div class="container text-center">
+<div>
+  <div class="container text-center">
   <h1>{{channel.title}}</h1>
   <p>{{channel.subtitle}}</p>
   <!-- First Way -->
@@ -10,5 +11,7 @@
    <!-- Second Way -->
     <img [src]=channel.logoSrc alt="" width="250" height="220">
   <hr>
-  <button class="btn btn-danger" [disabled]="shouldDisable">Subscribe</button>
+  <button class="btn btn-danger" [disabled]="shouldDisable" (click)="onSubscribeClick(channel, $event)">{{isSubcribed ? 'Unsubscribe' : 'Subscribe'}}</button>
+</div>
+<app-feedback></app-feedback>
 </div>

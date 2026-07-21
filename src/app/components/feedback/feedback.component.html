@@ -1,0 +1,19 @@
+<div class="feedback-card">
+  <h2>Kirim Feedback</h2>
+  <form>
+    <div class="form-group">
+      <label for="name">Nama</label>
+      <input [class.red-border]="name.length <= 3" type="text" id="name" name="name" placeholder="Masukkan nama Anda" required [(ngModel)]="name">
+      <p>{{name}}</p>
+    </div>
+    
+    <div class="form-group">
+      <label for="feedback">Masukan / Feedback</label>
+      <!-- <textarea id="feedback" name="feedback" rows="5" placeholder="Tulis feedback Anda di sini..." required [(ngModel)]="feedback"></textarea> -->
+          <textarea id="feedback" [ngModelOptions]="{standalone:true}" rows="5" placeholder="Tulis feedback Anda di sini..." required [(ngModel)]="feedback"></textarea>
+      <p>{{feedback.length}}/1000</p>
+    </div>
+    
+    <button type="submit" [ngClass]="{'btn-primary': name && feedback, 'btn-secondary': !name || !feedback, 'btn':true}" [disabled]="!name || !feedback" (click)="onSubmit()">Kirim</button>
+  </form>
+</div>
