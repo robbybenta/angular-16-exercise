@@ -3,7 +3,7 @@
   <form>
     <div class="form-group">
       <label for="name">Nama</label>
-      <input [class.red-border]="name.length <= 3" type="text" id="name" name="name" placeholder="Masukkan nama Anda" required [(ngModel)]="name">
+      <input [style.border]="name.length <= 3 ? '1px solid red' : ''" type="text" id="name" name="name" placeholder="Masukkan nama Anda" required [(ngModel)]="name">
       <p>{{name}}</p>
     </div>
     
@@ -14,6 +14,6 @@
       <p>{{feedback.length}}/1000</p>
     </div>
     
-    <button type="submit" [ngClass]="{'btn-primary': name && feedback, 'btn-secondary': !name || !feedback, 'btn':true}" [disabled]="!name || !feedback" (click)="onSubmit()">Kirim</button>
+    <button type="submit" [ngStyle]="getBtnStyle()" [disabled]="!name || !feedback" (click)="onSubmit()">Kirim</button>
   </form>
 </div>

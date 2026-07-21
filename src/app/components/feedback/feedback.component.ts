@@ -9,6 +9,26 @@ export class FeedbackComponent {
   name: string = '';
   feedback: string = '';
 
+  btnStyle = {
+    color: 'white',
+    border: 'none',
+    borderRadius: '4px',
+    backgroundColor: 'blue'
+  }
+  getBtnStyle(){
+    let style = {
+      color: 'white',
+      border: 'none',
+      borderRadius: '4px',
+      backgroundColor:'gray'
+    }
+    if(this.name && this.feedback) style.backgroundColor = 'blue'
+    else{
+      style.backgroundColor = 'gray'
+    }
+    return style
+  }
+
   onSubmit(){
     if(!this.name || !this.feedback) return
     const isConfirmed = confirm(`${this.name}, are you sure to give feedback "${this.feedback}"?`)
