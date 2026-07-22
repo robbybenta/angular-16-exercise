@@ -7,13 +7,15 @@ import { ProjectComponent } from './components/projects/project.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { FormsModule } from '@angular/forms';
+import { VideosComponent } from './components/videos/videos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProjectComponent,
     ProfileComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    VideosComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,53 @@
+<div class="videos-container container my-4">
+  <div id="select-course" class="mb-4">
+    <label for="list-course" class="form-label fw-bold mb-2">Pilih Course:</label>
+    <select name="list_courses" id="list-course" class="form-select" [(ngModel)]="selectedCourse">
+      <option value="All">All</option>
+      <option value="react">React JS</option>
+       <option value="svelte">Svelte</option>
+      <option value="vue">Vue JS</option>
+      <option value="angular">Angular</option>
+    </select>
+  </div>
+
+  <div class="video-courses row g-4">
+    <!-- Cara Pertama - Ng For didalam Object nya -->
+    <!-- <div class="col-12 col-md-4">
+      <div class="card video-card h-100 shadow-sm border-0">
+        <div class="card-body">
+          <span class="badge bg-danger mb-2">{{selectedCourse | titlecase}}</span>
+          <label for="course_angular" class="form-label d-block fw-bold h5 mb-2">Course {{selectedCourse | titlecase}}</label>
+          <div class="item-video-title" *ngFor="let item of filteredCourse()" let i="index">{{item}}</div>
+        </div>
+      </div>
+    </div> -->
+    <!-- Cara Kedua - Ng For langsung di Object nya -->
+     <ng-container *ngIf="hasCourses(); else emptyCourses">
+      <div class="col-12 col-md-4" *ngFor="let course of filteredCourse() | keyvalue">
+      <div class="card video-card h-100 shadow-sm border-0">
+        <div class="card-body d-flex flex-column">
+          <div class="mb-3">
+            <span class="badge badge-pill" [ngClass]="'badge-' + course.key">{{course.key | uppercase}}</span>
+          </div>
+          <h5 class="fw-bold mb-3">Course {{course.key | titlecase}}</h5>
+          <div class="lessons-container d-flex flex-column gap-2">
+            <div class="lesson-item d-flex align-items-center gap-3 p-2.5 rounded-3" 
+                 *ngFor="let lesson of course.value; let i = index"
+                 [ngClass]="'lesson-' + course.key">
+              <span class="lesson-badge d-flex align-items-center justify-content-center fw-bold">
+                {{i + 1}}
+              </span>
+              <span class="lesson-name">{{lesson}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+     </ng-container>
+     <ng-template #emptyCourses>
+      <div class="col-12 text-center my-4">
+    <p class="text-muted fw-bold">Course is empty!</p>
+  </div>
+     </ng-template>
+  </div>
+</div>

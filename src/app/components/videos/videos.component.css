@@ -1,0 +1,131 @@
+.videos-container {
+  max-width: 900px;
+  margin: 2rem auto;
+}
+
+#select-course {
+  max-width: 320px;
+  margin: 0 auto 2rem auto;
+}
+
+.video-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 16px;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+.video-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Badge styles by framework */
+.badge-angular {
+  background-color: #dd0031;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0.35em 0.8em;
+  font-size: 0.75rem;
+}
+
+.badge-react {
+  background-color: #00d8ff;
+  color: #1a1a1a;
+  font-weight: 600;
+  padding: 0.35em 0.8em;
+  font-size: 0.75rem;
+}
+
+.badge-vue {
+  background-color: #42b883;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0.35em 0.8em;
+  font-size: 0.75rem;
+}
+
+/* Lesson box list container */
+.lessons-container {
+  margin-top: 0.5rem;
+}
+
+/* Base style for individual lesson card item */
+.lesson-item {
+  border: 1px solid transparent;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  padding: 10px 14px;
+}
+
+.lesson-badge {
+  width: 24px;
+  height: 24px;
+  font-size: 0.75rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.lesson-name {
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+/* Framework specific item colors & behavior */
+.lesson-angular {
+  background-color: #fff1f2;
+  border-color: #ffe4e6;
+  color: #be123c;
+}
+
+.lesson-angular:hover {
+  background-color: #ffe4e6;
+  border-color: #fda4af;
+  transform: translateX(4px);
+}
+
+.lesson-angular .lesson-badge {
+  background-color: #dd0031;
+  color: #ffffff;
+}
+
+.lesson-react {
+  background-color: #f0f9ff;
+  border-color: #e0f2fe;
+  color: #0369a1;
+}
+
+.lesson-react:hover {
+  background-color: #e0f2fe;
+  border-color: #7dd3fc;
+  transform: translateX(4px);
+}
+
+.lesson-react .lesson-badge {
+  background-color: #0284c7;
+  color: #ffffff;
+}
+
+.lesson-vue {
+  background-color: #f0fdf4;
+  border-color: #dcfce7;
+  color: #15803d;
+}
+
+.lesson-vue:hover {
+  background-color: #dcfce7;
+  border-color: #86efac;
+  transform: translateX(4px);
+}
+
+.lesson-vue .lesson-badge {
+  background-color: #16a34a;
+  color: #ffffff;
+}
+
+.item-video-title {
+  font-size: 0.95rem;
+  color: #6c757d;
+}
