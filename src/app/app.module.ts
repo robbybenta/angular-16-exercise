@@ -8,6 +8,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { FormsModule } from '@angular/forms';
 import { VideosComponent } from './components/videos/videos.component';
+import { CarousalComponent } from './components/carousal/carousal.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { VideosComponent } from './components/videos/videos.component';
     ProjectComponent,
     ProfileComponent,
     FeedbackComponent,
-    VideosComponent
+    VideosComponent,
+    CarousalComponent
   ],
   imports: [
     BrowserModule,
