@@ -11,7 +11,26 @@
    <!-- Second Way -->
     <img [src]=channel.logoSrc alt="" width="250" height="220">
   <hr>
-  <button class="btn btn-danger" [disabled]="shouldDisable" (click)="onSubscribeClick(channel, $event)">{{isSubcribed ? 'Unsubscribe' : 'Subscribe'}}</button>
+  
+   <!-- Cara 1 -->
+   <!-- <ng-template [ngIf]="!yourChannel">
+      <button class="btn btn-danger" [disabled]="shouldDisable" (click)="onSubscribeClick(channel, $event)">{{isSubcribed ? 'Unsubscribe' : 'Subscribe'}}</button>
+   </ng-template> -->
+   
+     <!-- Cara 2 -->
+  <!-- <button *ngIf="!yourChannel else desc" class="btn btn-danger" [disabled]="shouldDisable" (click)="onSubscribeClick(channel, $event)">{{isSubcribed ? 'Unsubscribe' : 'Subscribe'}}</button>
+  <ng-template #desc>
+    <span class="fw-bold fs-4">This is your channel</span>
+  </ng-template> -->
+
+  <!-- Cara 3 -->
+  <div *ngIf="!yourChannel then btn else desc"></div>
+  <ng-template #btn>
+           <button class="btn btn-danger" [disabled]="shouldDisable" (click)="onSubscribeClick(channel, $event)">{{isSubcribed ? 'Unsubscribe' : 'Subscribe'}}</button>
+  </ng-template>
+  <ng-template #desc>
+    <span class="fw-bold fs-4">This is your channel</span>
+  </ng-template>
 </div>
 <!-- <app-feedback></app-feedback> -->
  <app-carousal></app-carousal>

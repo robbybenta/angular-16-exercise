@@ -15,6 +15,7 @@ export class AppComponent {
 
   shouldDisable : boolean = false; 
   isSubcribed: boolean = false;
+  yourChannel: boolean = false;
   onSubscribeClick(channel: any, event: any){
     this.isSubcribed = !this.isSubcribed;
     console.log(event, 'event angular');
