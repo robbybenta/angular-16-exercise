@@ -42,29 +42,46 @@ export class VideosComponent {
   filteredCourse = ()=>{
     // Cara Pertama Men-Looping didalam object nya
     // return this.playlist_courses[this.selectedCourse]
-    // Cara Kedua Men-Looping object nya dan menggunakan filter
+    // Cara Kedua Men-Looping object nya dan menggunakan filter (Changing object to array directly in html used "keyvalue pipe")
+  //   if(this.selectedCourse === 'All'){
+  //     return this.playlist_courses;
+  //   }
+  //  else{
+  //   return {
+  //     [this.selectedCourse]: this.playlist_courses[this.selectedCourse]
+  //   }
+  //  }
+  // Cara Ketiga (Reccomended, cause using pure function & avoid changing object to array directly in html)
     if(this.selectedCourse === 'All'){
-      return this.playlist_courses;
+      // Function Object.entries() -> Mengubah object menjadi array
+     return Object.entries(this.playlist_courses).map(([key, value])=>({key,value}))
     }
-    // return {
-    //   [this.selectedCourse] : this.playlist_courses[this.selectedCourse]
-    // }
-   else{
-    // console.log(Object.keys(this.playlist_courses), 'test');
-    // console.log(Object.fromEntries(Object.entries(this.playlist_courses)),'tesrt')
-    
-    //  return Object.fromEntries(Object.entries(this.playlist_courses).filter(([key]) => key === this.selectedCourse))
-    return {
-      [this.selectedCourse]: this.playlist_courses[this.selectedCourse]
-    }
-   }
+    // Built Function "in" for checking key is exists in object, and return value in boolean (true or false)
+    return this.selectedCourse in this.playlist_courses ? [{key:this.selectedCourse, value:this.playlist_courses[this.selectedCourse]}] : []
+      
   }
 
-  hasCourses():boolean {
-    const courses = this.filteredCourse()
-    if(!courses) return false
-    return Object.values(courses).some(lessons=> Array.isArray(lessons) && lessons.length > 0)
+  trackByCourse(id: number, course:{key:string, value: string[]}){
+    return course.key
   }
+
+  trackByLesson(id:number, lesson:string){
+    return lesson
+  }
+  // Cara 1: Yang berelasi dengan cara kedua di this.filteredCourse()
+  // hasCourses():boolean {
+  //   const courses = this.filteredCourse()
+  //   if(!courses) return false
+  //   return Object.values(courses).some(lessons=> Array.isArray(lessons) && lessons.length > 0)
+  // }
+
+  // Cara 2: Yang berelasi dengan cara ketiga di this.filteredCourse()
+  hasCourses():boolean{
+    const courses = this.filteredCourse();
+    if(!courses) return false
+    else return courses.some(course => Array.isArray(course.value) && course.value.length > 0)
+  }
+
   // hasCourses(): boolean {
   //   const courses = this.filteredCourse();
   //   if (!courses) return false;
